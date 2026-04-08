@@ -28,21 +28,30 @@ class Tile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 60,
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 500),
+      curve: Curves.bounceIn, // NEW
       height: 60,
+      width: 60,
       decoration: BoxDecoration(
-        border: Border.all(color: const Color.fromARGB(255, 26, 23, 185)),
+        border: Border.all(color: const Color.fromARGB(255, 0, 0, 0)),
         color: switch (hitType) {
-          HitType.hit => Colors.green,
-          HitType.partial => Colors.yellow,
-          HitType.miss => Colors.grey,
-          _ => Colors.white,
+          HitType.hit => Color.fromARGB(255, 22, 250, 250),
+          HitType.partial => Color.fromARGB(255, 22, 250, 250),
+          HitType.miss => Color.fromARGB(255, 22, 250, 250),
+          _ => const Color.fromARGB(255, 22, 250, 250),
         },
+      ),
+      child: Center(
+        child: Text(
+          letter.toUpperCase(),
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
       ),
     );
   }
 }
+
 
 class GuessInput extends StatelessWidget {
   GuessInput({super.key, required this.onSubmitGuess});

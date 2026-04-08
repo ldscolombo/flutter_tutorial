@@ -22,6 +22,8 @@ const legalGuesses = <String>[
   "abled",
   "abode",
   "abort",
+  "lucas",
+  "teste",
 ];
 
 /// This class holds game state for a single round of Bulls and Cows,
